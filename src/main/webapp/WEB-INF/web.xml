@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+	id="WebApp_ID" version="4.0">
+	<display-name>Spring with Hibernate Web Page</display-name>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+
+	</welcome-file-list>
+
+	<!-- we can instantiate our servlet eagerly or lazyly by setting the value 
+		of <load-on-startup>1</load-on-startup> //this is eagerly started(meaning 
+		the servlet is awake from the beginning) and for lazy ->>put -1(meaning the 
+		servlet is NOT awake from the beginning, and takes time at the beginning) -->
+
+	<servlet>
+		<servlet-name>banepali</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>    <!-- Eagerly Start -->
+
+		<multipart-config>
+			<location>C:\Users\bhask\eclipse-workspace\MVCPractise\src\main\webapp\Images</location>
+			<max-file-size>5242880</max-file-size><!--5MB -->
+			<max-request-size>20971520</max-request-size><!--20MB -->
+			<file-size-threshold>0</file-size-threshold>
+		</multipart-config>
+
+	</servlet>
+
+
+	<servlet-mapping>
+		<servlet-name>banepali</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+
+
+</web-app>

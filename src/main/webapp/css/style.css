@@ -1,0 +1,95 @@
+.header {
+	position: fixed; /* must for fixed position */
+	height: 50px; /* must */
+	top: 0; /* must */
+	width: 100%; /* must */
+		
+	background-color: rgba(0, 0, 0, .5);   
+ }
+
+.footer {
+	
+	position: fixed;
+	height: 30px;
+	bottom: 0;
+	left-align: 0;
+	width: 100%;
+	background-color: #B70C1B;
+	color: white;
+	text-align: center;
+}
+
+
+@function set-text-color($color) {
+    @if (lightness( $color ) > 50) {
+      @return $black; /* // Lighter color, return black */
+    }
+    @else {
+      @return $white; /* // Darker color, return white */
+    }
+}
+
+.myFormStyle {
+	border: 0px solid #fff;
+	padding: 50px 60px;
+	margin-top: 5%;
+	-webkit-box-shadow: 0px 0px 22px 5px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 0px 0px 22px 5px rgba(0, 0, 0, 0.75);
+	box-shadow: 0px 0px 22px 5px rgba(0, 0, 0, 0.75);
+}
+
+.myTextStyle {
+	color: #6efacba6;
+	text-shadow: 4px 2px 5px #241d06;
+}
+
+.myBoxShadow {
+	box-shadow: 10px 10px 5px grey;
+}
+
+.myBtn {
+	background-color: Red;
+	border: none;
+	color: white;
+	padding: 12px 12px;
+	font-size: 12px;
+	border-radius: 4px;
+	cursor: pointer; /*Mouse pointer on hover*/
+}
+
+.deleteBtn {
+	background-color: Red;
+}
+
+.deleteBtn:hover {
+	background-color: #860000; /* darkred */
+}
+
+.editBtn {
+	background-color: #0080c0; /* navyblue */
+	
+	
+}
+
+.editBtn:hover {
+	background-color: #005279; /* darknavyblue */
+	
+}
+
+.lockBtn {
+	background-color: #7c0707;  /* DARK BROWN */
+}
+
+.lockBtn:hover {
+	background-color: #500404;  /* darker brown */
+}
+
+.unlockBtn {
+	background-color: green;
+}
+
+.unlockBtn:hover {
+	background-color: #085108; /* darker green */
+}
+
+/* UPDATE `employee_tbl` SET active = CASE  WHEN( Active = "NO") THEN "YES" WHEN(UserID <> "shrums" ) THEN "NO" END */
