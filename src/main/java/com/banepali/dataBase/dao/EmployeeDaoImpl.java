@@ -155,8 +155,16 @@ public abstract class EmployeeDaoImpl implements EmployeeDao {
 		return eId++;
 	}
 
-	// To Be Done: public String/void updateEmployeeByUserId(EmployeeEntity
-	// employeeEntity)
+
+	@Override
+	public void updateEmployee(EmployeeEntity employeeEntity) {
+		Object[] entityData = { employeeEntity.getUserId(), employeeEntity.getPassword(), employeeEntity.getName(),
+				employeeEntity.getEmail(), new Date(employeeEntity.getDate().getTime()), employeeEntity.getMobile(), employeeEntity.getSalary(),
+				employeeEntity.getSsn(), employeeEntity.getCreateDate(), employeeEntity.getUpdateDate() };
+		jdbcTemplate.update(SQLQueries.UPDATE_EMP_TBL_BY_USERID, entityData);
+	
+
+	}
 
 	@Override
 	public String updatePassword(String email, String password) {

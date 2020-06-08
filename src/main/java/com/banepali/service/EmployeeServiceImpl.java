@@ -12,8 +12,8 @@ import org.springframework.stereotype.Service;
 
 import com.banepali.controller.dto.EmployeeDTO;
 import com.banepali.dataBase.dao.EmployeeDao;
-import com.banepali.dataBase.dao.ORMEmployeeDaoImpl;
 import com.banepali.dataBase.dao.entity.EmployeeEntity;
+import com.banepali.dataBase.utils.Copy;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -146,9 +146,17 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return employeeDao.getIncrementedEId();
 	}
 
-	// To Be Done: public String/void updateEmployeeByUserId(EmployeeEntity
-	// employeeEntity)
-
+	@Override
+	public void updateEmployee(EmployeeDTO employeeDTO) {
+		EmployeeDTO dbemployeeDTO = employeeByUserId(employeeDTO.getUserId());
+		System.out.println("From EmployeeServiceImpl(.updateEmployee() with NULL) :" + dbemployeeDTO);
+		Copy.copyNonNullProperties(employeeDTO, dbemployeeDTO);
+		System.out.println("From EmployeeServiceImpl(.updateEmployee() without null) :" + dbemployeeDTO);
+		// Copy is separately made file in "com.banepali.dataBase.utils.Copy"
+		EmployeeEntity employeeEntity = new EmployeeEntity();
+		BeanUtils.copyProperties(dbemployeeDTO, employeeEntity);
+		employeeDao.updateEmployee(employeeEntity);
+	}
 	@Override
 	public String updatePassword(String email, String password) {
 		return employeeDao.updatePassword(email, password);

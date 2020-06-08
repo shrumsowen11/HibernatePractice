@@ -24,7 +24,8 @@ public interface EmployeeService {
     void update(EmployeeDTO employeeDTO);
 	String updatePassword(String email, String password);
 	void updateEmployeeActiveStatus(String userId);
-    
+	void updateEmployee(EmployeeDTO employeeDTO);
+
     void deleteById(int eID);
 	void deleteByEmail(String email);
 

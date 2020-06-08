@@ -2,7 +2,6 @@ package com.banepali.dataBase.dao;
 
 import java.sql.Time;
 import java.util.List;
-import java.util.Optional;
 
 import com.banepali.dataBase.dao.entity.EmployeeEntity;
 
@@ -25,6 +24,7 @@ public interface EmployeeDao {
 	String updatePassword(String email, String password);
 	String updatePassword(String password);
 	void updateEmployeeActiveStatus(String userId);
+	void updateEmployee(EmployeeEntity employeeEntity);
 
     
     
@@ -39,6 +39,7 @@ public interface EmployeeDao {
 	byte[] findImageById(int sid);
 
 	String updatePassword(EmployeeEntity employeeEntity, String password);
+
 
 	
 
